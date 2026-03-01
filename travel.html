@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안앤전 웹사이트 - Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 동일한 디자인 유지를 위한 CSS */
+        :root {
+            --bg-color: #0f172a; --card-bg: #111827; --text-main: #e5e7eb;      
+            --text-light: #9ca3af; --accent-color: #3b82f6; --accent-secondary: #8b5cf6; 
+            --nav-bg: rgba(15, 23, 42, 0.85);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Gowun Dodum', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%); }
+        nav { position: fixed; top: 0; width: 100%; background-color: var(--nav-bg); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-container { max-width: 800px; margin: 0 auto; display: flex; justify-content: center; padding: 1rem; gap: 2rem; }
+        .nav-link { color: var(--text-light); text-decoration: none; font-size: 1.1rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 20px; transition: all 0.3s ease; }
+        .nav-link:hover { color: var(--text-main); background-color: rgba(255, 255, 255, 0.05); }
+        .nav-link.active { color: #ffffff; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        
+        .container { max-width: 800px; margin: 80px auto 0; padding: 2rem 1.5rem; animation: fadeInPage 0.8s ease forwards; }
+        .section-card { background-color: var(--card-bg); border-radius: 24px; padding: 2.5rem; margin-bottom: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .section-title { font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(139, 92, 246, 0.3); padding-bottom: 0.8rem; }
+        .title-text { background: linear-gradient(to right, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { margin-bottom: 1rem; font-size: 1.05rem; }
+
+        /* 여행 카드 전용 스타일 */
+        .travel-timeline { display: flex; flex-direction: column; gap: 2rem; }
+        .travel-card { background-color: #1e293b; border-radius: 20px; overflow: hidden; border: 1px solid rgba(59, 130, 246, 0.2); transition: transform 0.3s ease; }
+        .travel-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15); }
+        .travel-img { width: 100%; height: 250px; object-fit: cover; background-color: #2d3748; border-bottom: 2px solid var(--accent-secondary); }
+        .travel-info { padding: 1.5rem; }
+        .travel-date { font-size: 0.9rem; color: var(--accent-color); font-weight: bold; margin-bottom: 0.5rem; }
+        .travel-title { font-size: 1.3rem; color: #fff; margin-bottom: 1rem; font-weight: bold; }
+
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) { .section-card { padding: 1.5rem; } .nav-link { font-size: 1rem; padding: 0.4rem 0.8rem; } }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 바 -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">🏠 Home</a>
+            <a href="travel.html" class="nav-link active">✈️ Travel</a> <!-- Travel 활성화 -->
+            <a href="photo.html" class="nav-link">📸 Photo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 여행 섹션 -->
+        <main id="travel">
+            <div class="section-card">
+                <h2 class="section-title">✈️ <span class="title-text">My Travel Story</span></h2>
+                <p style="margin-bottom: 2rem;">가족들과 함께, 혹은 온전히 나를 위해 떠났던 소중한 여행의 기록들입니다.</p>
+                
+                <div class="travel-timeline">
+                    <!-- 여행 카드 1 -->
+                    <div class="travel-card">
+                        <!-- 이미지 링크는 나중에 본인 사진으로 변경하세요! -->
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?q=80&w=800&auto=format&fit=crop" alt="제주도 바다" class="travel-img">
+                        <div class="travel-info">
+                            <div class="travel-date">2023. 08</div>
+                            <div class="travel-title">다섯 식구 총출동! 시끌벅적 제주도 여행</div>
+                            <p>아이들 셋 짐 챙기는 것부터 미션이었지만, 푸른 제주 바다를 보니 피로가 싹 날아갔던 기억. 밤에는 아이들 재우고 남편과 맥주 한 캔의 여유를 즐겼습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 여행 카드 2 -->
+                    <div class="travel-card">
+                        <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=800&auto=format&fit=crop" alt="캠핑장" class="travel-img">
+                        <div class="travel-info">
+                            <div class="travel-date">2023. 10</div>
+                            <div class="travel-title">주말의 힐링, 불멍 캠핑</div>
+                            <p>귀차니즘을 이겨내고 떠난 가을 캠핑. 텐트 치는 건 힘들었지만, 장작불 앞에 옹기종기 모여 앉아 구워 먹은 마시멜로 맛은 잊을 수 없어요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

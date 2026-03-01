@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안앤전 웹사이트 - Photo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 동일한 디자인 유지를 위한 CSS */
+        :root {
+            --bg-color: #0f172a; --card-bg: #111827; --text-main: #e5e7eb;      
+            --text-light: #9ca3af; --accent-color: #3b82f6; --accent-secondary: #8b5cf6; 
+            --nav-bg: rgba(15, 23, 42, 0.85);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Gowun Dodum', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 50%); }
+        nav { position: fixed; top: 0; width: 100%; background-color: var(--nav-bg); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-container { max-width: 800px; margin: 0 auto; display: flex; justify-content: center; padding: 1rem; gap: 2rem; }
+        .nav-link { color: var(--text-light); text-decoration: none; font-size: 1.1rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 20px; transition: all 0.3s ease; }
+        .nav-link:hover { color: var(--text-main); background-color: rgba(255, 255, 255, 0.05); }
+        .nav-link.active { color: #ffffff; background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary)); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        
+        .container { max-width: 800px; margin: 80px auto 0; padding: 2rem 1.5rem; animation: fadeInPage 0.8s ease forwards; }
+        .section-card { background-color: var(--card-bg); border-radius: 24px; padding: 2.5rem; margin-bottom: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .section-title { font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(139, 92, 246, 0.3); padding-bottom: 0.8rem; }
+        .title-text { background: linear-gradient(to right, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { margin-bottom: 1rem; font-size: 1.05rem; }
+
+        /* 갤러리 그리드 전용 스타일 */
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+        .photo-item { width: 100%; aspect-ratio: 1 / 1; border-radius: 15px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1); }
+        .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .photo-item:hover img { transform: scale(1.1); }
+        .photo-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; opacity: 0; transition: opacity 0.3s ease; font-size: 0.9rem; }
+        .photo-item:hover .photo-overlay { opacity: 1; }
+
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) { .section-card { padding: 1.5rem; } .nav-link { font-size: 1rem; padding: 0.4rem 0.8rem; } }
+    </style>
+</head>
+<body>
+
+    <!-- 네비게이션 바 -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">🏠 Home</a>
+            <a href="travel.html" class="nav-link">✈️ Travel</a>
+            <a href="photo.html" class="nav-link active">📸 Photo</a> <!-- Photo 활성화 -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 갤러리 섹션 -->
+        <main id="gallery">
+            <div class="section-card">
+                <h2 class="section-title">📸 <span class="title-text">Photo Gallery</span></h2>
+                <p style="margin-bottom: 2rem;">나의 일상, 내가 만든 작품, 그리고 기억하고 싶은 순간들.</p>
+
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&auto=format&fit=crop" alt="작업 공간">
+                        <div class="photo-overlay">내 작업 공간 💻</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?q=80&w=400&auto=format&fit=crop" alt="노트북 코딩">
+                        <div class="photo-overlay">열심히 수업 준비 중!</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400&auto=format&fit=crop" alt="요가/휴식">
+                        <div class="photo-overlay">바쁜 일상 속 휴식 시간 ☕</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="IT 기기">
+                        <div class="photo-overlay">나의 새로운 장비들</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?q=80&w=400&auto=format&fit=crop" alt="쇼핑">
+                        <div class="photo-overlay">스트레스 풀리는 쇼핑 타임 🛍️</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=400&auto=format&fit=crop" alt="맛있는 음식">
+                        <div class="photo-overlay">주말의 맛있는 안주 🍺</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
